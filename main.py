@@ -7,6 +7,7 @@ import sys
 from typing import Tuple, Optional
 import traceback
 
+from src.models.chat_gpt import ChatGPTModel
 from src.models.claude_model import ClaudeModel
 from src.models.sentence_transformer_embeddings import SentenceTransformerEmbeddings
 from src.database.db_manager import DatabaseManager
@@ -63,10 +64,14 @@ class ApplicationContext:
             )
 
             # Initialize LLM
-            llm = ClaudeModel(
-                model_name=config.model.model_name,
+            # llm = ClaudeModel(
+            #     model_name=config.model.model_name,
+            #     api_key=config.model.api_key,
+            #     max_tokens=config.model.max_tokens
+            # )
+
+            llm = ChatGPTModel(
                 api_key=config.model.api_key,
-                max_tokens=config.model.max_tokens
             )
 
             # Initialize managers

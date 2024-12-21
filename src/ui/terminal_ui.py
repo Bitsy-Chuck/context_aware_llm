@@ -133,10 +133,10 @@ class TerminalUI:
                 response = await self.current_chat.generate_response(message)
 
                 progress.update(task, completed=True)
-
+                self.logger.info("------", response)
                 # Format and display the response
                 formatted_response = self.message_formatter.format_message({
-                    "content": response,
+                    "content": response[0],
                     "role": "assistant"
                 })
 
@@ -144,6 +144,7 @@ class TerminalUI:
 
         except Exception as e:
             self.logger.error(f"Error handling message: {str(e)}")
+            self.logger.error("Error: ", traceback.print_stack())
             self.console.print(f"[red]Error generating response: {str(e)}[/red]")
 
     async def create_new_chat(self):

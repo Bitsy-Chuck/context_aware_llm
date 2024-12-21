@@ -1,1 +1,11 @@
 # Project dependencies
+
+rich~=13.9.4
+prompt_toolkit~=3.0.48
+PyYAML~=6.0.2
+python-magic~=0.4.27
+openai~=1.58.1
+anthropic~=0.42.0
+numpy~=1.26.4
+torch~=2.2.2
+asyncpg~=0.30.0

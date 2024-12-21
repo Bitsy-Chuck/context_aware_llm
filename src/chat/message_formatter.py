@@ -42,6 +42,7 @@ class MessageFormatter:
 
         # Format content
         content = message["content"]
+        print("----------------------", content)
         content = self.markdown_helper.sanitize_markdown(content)
         content = self.markdown_helper.format_response(content, terminal_width)
 
