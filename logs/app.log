@@ -1,0 +1,47 @@
+2024-12-21 22:05:19,642 - __main__ - INFO - Starting application...
+2024-12-21 22:05:19,722 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 22:05:22,886 - src.database.vector_store - INFO - Loaded 25 vectors from disk
+2024-12-21 22:05:22,940 - __main__ - INFO - Application initialized successfully
+2024-12-21 22:05:26,615 - src.chat.chat_manager - INFO - Created new chat session: ddf6373a-86b9-4e11-a359-9a83a9ab625d
+2024-12-21 22:05:35,732 - src.ui.terminal_ui - INFO - files6
+2024-12-21 22:05:39,603 - src.chat.chat_session - ERROR - Failed to get chat history: DatabaseManager.get_chat_history() got an unexpected keyword argument 'limit'
+Traceback (most recent call last):
+  File "/Users/ojasvsingh/personal_projects/rag_based_chatbot/rag_chat_system/src/chat/chat_session.py", line 196, in get_chat_history
+    messages = await self.db_manager.get_chat_history(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: DatabaseManager.get_chat_history() got an unexpected keyword argument 'limit'
+
+2024-12-21 22:05:40,253 - src.models.claude_model - ERROR - Error generating response: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2024-12-21 22:05:40,257 - src.chat.chat_session - ERROR - Error generating response: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+Traceback (most recent call last):
+  File "/Users/ojasvsingh/personal_projects/rag_based_chatbot/rag_chat_system/src/chat/chat_session.py", line 261, in generate_response
+    response = await self.llm.generate_response(messages)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ojasvsingh/personal_projects/rag_based_chatbot/rag_chat_system/src/models/claude_model.py", line 179, in generate_response
+    response = await self.client.messages.create(**request_params)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ojasvsingh/personal_projects/rag_based_chatbot/.venv/lib/python3.11/site-packages/anthropic/_utils/_utils.py", line 275, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ojasvsingh/personal_projects/rag_based_chatbot/.venv/lib/python3.11/site-packages/anthropic/resources/messages/messages.py", line 901, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/ojasvsingh/personal_projects/rag_based_chatbot/.venv/lib/python3.11/site-packages/anthropic/_base_client.py", line 1279, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ojasvsingh/personal_projects/rag_based_chatbot/.venv/lib/python3.11/site-packages/anthropic/_base_client.py", line 956, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/Users/ojasvsingh/personal_projects/rag_based_chatbot/.venv/lib/python3.11/site-packages/anthropic/_base_client.py", line 982, in _request
+    request = self._build_request(options, retries_taken=retries_taken)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ojasvsingh/personal_projects/rag_based_chatbot/.venv/lib/python3.11/site-packages/anthropic/_base_client.py", line 465, in _build_request
+    headers = self._build_headers(options, retries_taken=retries_taken)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ojasvsingh/personal_projects/rag_based_chatbot/.venv/lib/python3.11/site-packages/anthropic/_base_client.py", line 413, in _build_headers
+    self._validate_headers(headers_dict, custom_headers)
+  File "/Users/ojasvsingh/personal_projects/rag_based_chatbot/.venv/lib/python3.11/site-packages/anthropic/_client.py", line 180, in _validate_headers
+    raise TypeError(
+TypeError: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+
+2024-12-21 22:05:40,259 - src.ui.terminal_ui - ERROR - Error handling message: Error generating response: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"

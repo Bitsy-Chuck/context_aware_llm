@@ -1,0 +1,631 @@
+2024-12-21 19:42:04,035 - __main__ - INFO - Starting application...
+2024-12-21 19:42:04,139 - root - ERROR - Error initializing components: role "user" does not exist
+2024-12-21 19:42:04,139 - __main__ - ERROR - Application error: role "user" does not exist
+2024-12-21 19:44:20,715 - __main__ - INFO - Starting application...
+2024-12-21 19:44:20,757 - root - ERROR - Error initializing components: role "user" does not exist
+2024-12-21 19:44:20,758 - __main__ - ERROR - Application error: role "user" does not exist
+2024-12-21 19:44:20,758 - __main__ - INFO - Application shutdown complete
+2024-12-21 19:47:53,909 - __main__ - INFO - Starting application...
+2024-12-21 19:47:53,940 - root - ERROR - Error initializing components: database "rag_chat" does not exist
+2024-12-21 19:47:53,940 - __main__ - ERROR - Application error: database "rag_chat" does not exist
+2024-12-21 19:47:53,941 - __main__ - INFO - Application shutdown complete
+2024-12-21 19:48:15,884 - __main__ - INFO - Starting application...
+2024-12-21 19:48:16,055 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 19:48:36,691 - __main__ - INFO - Application initialized successfully
+2024-12-21 19:50:12,667 - __main__ - INFO - Application terminated by user
+2024-12-21 19:50:12,688 - __main__ - INFO - Application shutdown complete
+2024-12-21 19:50:18,936 - __main__ - INFO - Starting application...
+2024-12-21 19:50:19,026 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 19:50:22,730 - __main__ - INFO - Application initialized successfully
+2024-12-21 19:52:43,556 - src.ui.terminal_ui - ERROR - Error in main loop: TerminalUI.upload_file() takes 1 positional argument but 2 were given
+2024-12-21 19:57:11,543 - src.ui.terminal_ui - ERROR - Error in main loop: TerminalUI.upload_file() takes 1 positional argument but 2 were given
+2024-12-21 19:57:33,743 - __main__ - INFO - Starting application...
+2024-12-21 19:57:33,841 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 19:57:38,491 - __main__ - INFO - Application initialized successfully
+2024-12-21 19:57:57,710 - __main__ - INFO - Application terminated by user
+2024-12-21 19:57:57,733 - __main__ - INFO - Application shutdown complete
+2024-12-21 19:58:30,540 - __main__ - INFO - Starting application...
+2024-12-21 19:58:30,632 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 19:58:34,566 - __main__ - INFO - Application initialized successfully
+2024-12-21 20:00:25,112 - __main__ - INFO - Starting application...
+2024-12-21 20:00:25,200 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 20:00:29,371 - __main__ - INFO - Application initialized successfully
+2024-12-21 20:01:35,373 - src.ui.terminal_ui - ERROR - Error in main loop: TerminalUI.upload_file() takes 1 positional argument but 7 were given
+2024-12-21 20:01:35,398 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,400 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,407 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,409 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,420 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,421 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,431 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,432 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,443 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,444 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,456 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,457 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,464 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,465 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,473 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,474 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,480 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,480 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,486 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,487 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,493 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,493 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,499 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,500 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,511 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,512 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,519 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,520 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,528 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,528 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,536 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,537 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,541 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,542 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,546 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,547 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,553 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,554 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,560 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,561 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,568 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,568 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,572 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,572 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,579 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,580 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,587 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,588 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,596 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,597 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,604 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,604 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,614 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,614 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,624 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,625 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,634 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,635 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,645 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,646 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,653 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,654 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,661 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,662 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,669 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,670 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,676 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,677 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,681 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,681 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,692 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,692 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,699 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,699 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,706 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,707 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,711 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,711 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,718 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,720 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,725 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,726 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,733 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,734 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,741 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,741 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,748 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,748 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,754 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,755 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,761 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,762 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,768 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,769 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,775 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,776 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,782 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,783 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,789 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,790 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,793 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,794 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,802 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,803 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,810 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,811 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,814 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,815 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,823 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,824 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,831 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,832 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,841 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,842 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,849 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,850 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,858 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,859 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,864 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,864 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,874 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,875 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,882 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,883 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,889 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,890 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,897 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,897 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,907 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,907 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,913 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,913 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,922 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,922 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,928 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,929 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,936 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,937 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,943 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,944 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,949 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,949 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,955 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,956 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,960 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,960 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,968 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,968 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,975 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,976 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,982 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,983 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,987 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,988 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,992 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,992 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,999 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:35,999 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,015 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,016 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,024 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,025 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,033 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,034 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,051 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,052 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,061 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,062 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,068 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,070 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,079 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,080 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,087 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,087 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,096 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,097 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,109 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,109 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,119 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,119 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,128 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,129 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,134 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,134 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,148 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,149 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,154 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,154 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,161 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,162 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,172 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,173 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,181 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,182 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,187 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,188 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,193 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,194 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,199 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,199 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,206 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,207 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,217 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,217 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,228 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,228 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,243 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,246 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,262 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,263 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,270 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,270 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,282 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,283 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,288 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,289 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,295 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,296 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,303 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,304 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,315 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,316 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,325 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,326 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,337 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,338 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,348 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,348 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,358 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,359 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,369 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,370 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,377 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,378 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,385 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,385 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,390 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,390 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,403 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,404 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,412 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,413 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,423 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,424 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,435 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,436 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,448 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,448 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,455 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,456 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,469 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,469 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,482 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,483 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,495 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,496 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,505 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,506 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,513 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,514 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,522 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,523 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,527 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,528 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,534 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,535 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,545 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,545 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,555 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,555 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,564 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,565 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,570 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,571 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,580 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,581 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,591 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,591 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,595 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,596 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,606 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,606 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,614 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,615 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,626 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,627 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,635 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,636 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,647 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,647 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,654 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,655 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,662 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,662 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,669 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,670 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,678 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,679 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,684 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,685 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,692 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,692 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,699 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,700 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,710 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,711 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,715 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,715 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,724 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,724 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,731 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,732 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,739 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,739 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,750 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,751 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,756 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,757 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,764 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,764 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,774 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,775 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,789 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,790 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,796 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,796 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,806 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,807 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,817 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,817 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,837 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,837 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,844 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,845 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,853 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,854 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,864 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,865 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,876 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,877 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,887 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,888 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,895 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,896 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,906 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,906 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,916 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,916 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,922 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,923 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,929 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,930 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,936 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,936 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,942 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,943 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,949 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,950 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,956 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,957 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,962 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,963 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,969 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,969 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,976 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,976 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,982 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,983 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,991 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:36,991 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,001 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,001 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,005 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,006 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,014 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,014 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,092 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,093 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,100 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,101 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,110 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,111 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,122 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,122 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,129 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,130 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,140 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,141 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,145 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,146 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,156 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,157 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,164 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,165 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,171 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,172 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,177 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,178 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,184 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,185 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,191 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,192 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,197 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,198 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,203 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,204 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,210 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,211 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,218 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,219 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,227 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,228 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,236 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,237 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,245 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,245 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,253 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,253 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,261 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,262 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,270 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,270 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,277 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,278 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,285 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,286 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,295 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,296 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,303 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,304 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,310 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,311 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,318 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,318 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,327 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,328 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,335 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,335 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,339 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,340 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,347 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,347 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,354 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,355 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,361 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,362 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,371 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:37,371 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:01:47,941 - __main__ - INFO - Starting application...
+2024-12-21 20:01:48,032 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 20:01:52,030 - __main__ - INFO - Application initialized successfully
+2024-12-21 20:04:30,942 - __main__ - INFO - Application terminated by user
+2024-12-21 20:04:30,963 - __main__ - INFO - Application shutdown complete
+2024-12-21 20:04:35,174 - __main__ - INFO - Starting application...
+2024-12-21 20:04:35,272 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 20:04:39,032 - __main__ - INFO - Application initialized successfully
+2024-12-21 20:04:53,288 - src.ui.terminal_ui - ERROR - Error in main loop: TerminalUI.upload_file() takes 1 positional argument but 2 were given
+2024-12-21 20:05:52,215 - src.indexing.index_manager - ERROR - Error indexing file /Users/ojasvsingh/personal_projects/stock_app/backend/backend/docs/1.md: Numpy is not available
+2024-12-21 20:05:52,216 - src.ui.terminal_ui - ERROR - Error uploading file: Numpy is not available
+2024-12-21 20:08:02,242 - __main__ - INFO - Starting application...
+2024-12-21 20:08:02,253 - __main__ - INFO - Application shutdown complete
+2024-12-21 20:08:05,527 - __main__ - INFO - Starting application...
+2024-12-21 20:08:05,606 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 20:08:09,162 - __main__ - INFO - Application initialized successfully
+2024-12-21 20:08:28,965 - src.indexing.index_manager - ERROR - Error indexing file /Users/ojasvsingh/personal_projects/stock_app/backend/backend/docs/1.md: Numpy is not available
+2024-12-21 20:08:28,972 - src.ui.terminal_ui - ERROR - Error uploading file: Numpy is not available
+2024-12-21 20:13:59,721 - __main__ - INFO - Starting application...
+2024-12-21 20:13:59,801 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 20:14:02,988 - __main__ - INFO - Application initialized successfully
+2024-12-21 20:14:23,243 - src.database.vector_store - INFO - Saved 5 vectors to disk
+2024-12-21 20:14:23,243 - src.indexing.index_manager - ERROR - Error indexing file /Users/ojasvsingh/personal_projects/stock_app/backend/backend/docs/1.md: 'SentenceTransformer' object has no attribute 'get_model_card'
+2024-12-21 20:14:23,249 - src.ui.terminal_ui - ERROR - Error uploading file: 'SentenceTransformer' object has no attribute 'get_model_card'
+2024-12-21 20:26:28,765 - __main__ - INFO - Starting application...
+2024-12-21 20:26:28,850 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 20:26:33,028 - src.database.vector_store - INFO - Loaded 5 vectors from disk
+2024-12-21 20:26:33,082 - __main__ - INFO - Application initialized successfully
+2024-12-21 20:28:02,183 - src.database.vector_store - INFO - Saved 10 vectors to disk
+2024-12-21 20:28:02,184 - src.indexing.index_manager - ERROR - Error indexing file /Users/ojasvsingh/personal_projects/stock_app/backend/backend/docs/1.md: maximum recursion depth exceeded
+2024-12-21 20:28:02,221 - src.ui.terminal_ui - ERROR - Error uploading file: maximum recursion depth exceeded
+2024-12-21 20:36:51,959 - __main__ - INFO - Starting application...
+2024-12-21 20:36:52,039 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 20:36:56,113 - src.database.vector_store - INFO - Loaded 10 vectors from disk
+2024-12-21 20:36:56,160 - __main__ - INFO - Application initialized successfully
+2024-12-21 20:38:15,797 - src.indexing.index_manager - ERROR - Error indexing file                      : File not found:                      
+2024-12-21 20:38:15,808 - src.ui.terminal_ui - ERROR - Error uploading file: File not found:                      
+2024-12-21 20:38:25,339 - src.indexing.index_manager - ERROR - Error indexing file                   : File not found:                   
+2024-12-21 20:38:25,343 - src.ui.terminal_ui - ERROR - Error uploading file: File not found:                   
+2024-12-21 20:38:47,916 - src.database.vector_store - INFO - Saved 15 vectors to disk
+2024-12-21 20:38:47,933 - src.indexing.index_manager - INFO - Successfully indexed file: /Users/ojasvsingh/personal_projects/stock_app/backend/backend/docs/1.md with ID: 33b50204bedb5c0e
+2024-12-21 20:38:59,427 - src.ui.terminal_ui - ERROR - Error in main loop: object NoneType can't be used in 'await' expression
+2024-12-21 20:39:13,721 - src.indexing.index_manager - ERROR - Error getting indexed files stats: 'str' object has no attribute 'get'
+2024-12-21 20:39:13,721 - src.ui.terminal_ui - ERROR - Error in main loop: 'str' object has no attribute 'get'
+2024-12-21 20:40:41,107 - __main__ - INFO - Starting application...
+2024-12-21 20:40:41,222 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 20:40:44,295 - src.database.vector_store - INFO - Loaded 15 vectors from disk
+2024-12-21 20:40:44,351 - __main__ - INFO - Application initialized successfully
+2024-12-21 20:41:15,088 - src.database.vector_store - INFO - Saved 20 vectors to disk
+2024-12-21 20:41:15,095 - src.indexing.index_manager - INFO - Successfully indexed file: /Users/ojasvsingh/personal_projects/stock_app/backend/backend/docs/1.md with ID: 33b50204bedb5c0e
+2024-12-21 20:41:25,037 - src.ui.terminal_ui - ERROR - Error in main loop: object NoneType can't be used in 'await' expression
+2024-12-21 20:41:51,716 - src.indexing.index_manager - ERROR - Error getting indexed files stats: 'str' object has no attribute 'get'
+2024-12-21 20:41:51,716 - src.ui.terminal_ui - ERROR - Error in main loop: 'str' object has no attribute 'get'
+2024-12-21 20:46:45,895 - __main__ - INFO - Starting application...
+2024-12-21 20:46:45,999 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 20:46:51,081 - src.database.vector_store - INFO - Loaded 20 vectors from disk
+2024-12-21 20:46:51,154 - __main__ - INFO - Application initialized successfully
+2024-12-21 20:48:15,806 - __main__ - INFO - Application terminated by user
+2024-12-21 20:48:15,845 - __main__ - INFO - Application shutdown complete
+2024-12-21 20:48:25,127 - __main__ - INFO - Starting application...
+2024-12-21 20:48:25,212 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 20:48:30,122 - src.database.vector_store - INFO - Loaded 20 vectors from disk
+2024-12-21 20:48:30,174 - __main__ - INFO - Application initialized successfully
+2024-12-21 20:48:58,272 - src.ui.terminal_ui - ERROR - Error in main loop: string indices must be integers, not 'str'
+2024-12-21 20:54:02,004 - __main__ - INFO - Starting application...
+2024-12-21 20:54:02,082 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 20:54:06,085 - src.database.vector_store - INFO - Loaded 20 vectors from disk
+2024-12-21 20:54:06,136 - __main__ - INFO - Application initialized successfully
+2024-12-21 20:54:13,567 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:54:13,569 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 20:54:18,804 - src.indexing.index_manager - INFO - file type
+2024-12-21 20:54:18,805 - src.indexing.index_manager - INFO - file type 2
+2024-12-21 20:54:18,805 - src.ui.terminal_ui - ERROR - Error in main loop: string indices must be integers, not 'str'
+2024-12-21 21:00:10,827 - __main__ - INFO - Starting application...
+2024-12-21 21:00:10,910 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 21:00:13,974 - src.database.vector_store - INFO - Loaded 20 vectors from disk
+2024-12-21 21:00:14,028 - __main__ - INFO - Application initialized successfully
+2024-12-21 21:00:36,031 - src.database.vector_store - INFO - Saved 25 vectors to disk
+2024-12-21 21:00:36,036 - src.indexing.index_manager - INFO - Successfully indexed file: /Users/ojasvsingh/personal_projects/stock_app/backend/backend/docs/1.md with ID: 33b50204bedb5c0e
+2024-12-21 21:00:47,016 - src.indexing.index_manager - INFO - file type
+2024-12-21 21:00:47,016 - src.indexing.index_manager - INFO - file type 2
+2024-12-21 21:00:47,017 - src.ui.terminal_ui - INFO - files
+2024-12-21 21:00:47,017 - src.ui.terminal_ui - ERROR - Error in main loop: 0
+2024-12-21 21:02:32,202 - __main__ - INFO - Starting application...
+2024-12-21 21:02:32,276 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 21:02:35,148 - src.database.vector_store - INFO - Loaded 25 vectors from disk
+2024-12-21 21:02:35,198 - __main__ - INFO - Application initialized successfully
+2024-12-21 21:02:45,361 - src.indexing.index_manager - INFO - file type
+2024-12-21 21:02:45,362 - src.indexing.index_manager - INFO - file type 2
+2024-12-21 21:02:45,370 - src.ui.terminal_ui - INFO - files
+2024-12-21 21:02:45,370 - src.ui.terminal_ui - ERROR - Error in main loop: 0
+2024-12-21 21:09:17,092 - __main__ - INFO - Starting application...
+2024-12-21 21:09:17,161 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 21:09:21,457 - src.database.vector_store - INFO - Loaded 25 vectors from disk
+2024-12-21 21:09:21,508 - __main__ - INFO - Application initialized successfully
+2024-12-21 21:10:10,437 - src.indexing.index_manager - INFO - file type
+2024-12-21 21:10:10,438 - src.indexing.index_manager - INFO - file type 2
+2024-12-21 21:10:10,446 - src.ui.terminal_ui - INFO - files
+2024-12-21 21:10:10,448 - src.ui.terminal_ui - ERROR - Error in main loop: string indices must be integers, not 'str'
+2024-12-21 21:17:19,027 - __main__ - INFO - Starting application...
+2024-12-21 21:17:19,100 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 21:17:23,058 - src.database.vector_store - INFO - Loaded 25 vectors from disk
+2024-12-21 21:17:23,104 - __main__ - ERROR - Application error: Console.__init__() got an unexpected keyword argument 'markdown'
+2024-12-21 21:17:23,121 - __main__ - INFO - Application shutdown complete
+2024-12-21 21:18:14,925 - __main__ - INFO - Starting application...
+2024-12-21 21:18:15,009 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 21:18:18,355 - src.database.vector_store - INFO - Loaded 25 vectors from disk
+2024-12-21 21:18:18,409 - __main__ - ERROR - Application error: 'TerminalUI' object has no attribute 'create_new_chat'
+2024-12-21 21:18:18,429 - __main__ - INFO - Application shutdown complete
+2024-12-21 21:28:12,314 - __main__ - INFO - Starting application...
+2024-12-21 21:28:12,412 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 21:28:16,773 - src.database.vector_store - INFO - Loaded 25 vectors from disk
+2024-12-21 21:28:16,827 - __main__ - INFO - Application initialized successfully
+2024-12-21 21:28:41,408 - src.ui.terminal_ui - INFO - files6
+2024-12-21 21:28:57,429 - src.ui.terminal_ui - ERROR - Error in main loop: object NoneType can't be used in 'await' expression
+2024-12-21 21:29:08,997 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 21:29:09,000 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 21:40:15,092 - __main__ - INFO - Starting application...
+2024-12-21 21:40:15,178 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 21:40:18,817 - src.database.vector_store - INFO - Loaded 25 vectors from disk
+2024-12-21 21:40:18,866 - __main__ - INFO - Application initialized successfully
+2024-12-21 21:41:13,849 - src.ui.terminal_ui - INFO - files6
+2024-12-21 21:41:37,343 - src.chat.chat_session - ERROR - Error generating response: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 21:41:37,346 - src.ui.terminal_ui - ERROR - Error handling message: 'VectorStore' object has no attribute 'embed_query'
+2024-12-21 21:45:13,090 - __main__ - INFO - Starting application...
+2024-12-21 21:45:13,174 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 21:45:17,620 - src.database.vector_store - INFO - Loaded 25 vectors from disk
+2024-12-21 21:45:17,674 - __main__ - INFO - Application initialized successfully
+2024-12-21 21:54:12,138 - __main__ - INFO - Application terminated by user
+2024-12-21 21:54:12,140 - __main__ - INFO - Application shutdown complete
+2024-12-21 21:54:16,646 - __main__ - INFO - Starting application...
+2024-12-21 21:54:16,737 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 21:54:21,648 - src.database.vector_store - INFO - Loaded 25 vectors from disk
+2024-12-21 21:54:21,701 - __main__ - INFO - Application initialized successfully
+2024-12-21 21:54:29,319 - src.ui.terminal_ui - ERROR - Error in UI: ChatSession.__init__() missing 1 required positional argument: 'embedding_model'
+2024-12-21 21:54:29,320 - __main__ - ERROR - Application error: ChatSession.__init__() missing 1 required positional argument: 'embedding_model'
+2024-12-21 21:54:29,349 - __main__ - INFO - Application shutdown complete
+2024-12-21 21:59:49,890 - __main__ - INFO - Starting application...
+2024-12-21 21:59:49,987 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 21:59:53,116 - src.database.vector_store - INFO - Loaded 25 vectors from disk
+2024-12-21 21:59:53,192 - __main__ - INFO - Application initialized successfully
+2024-12-21 22:01:11,733 - __main__ - INFO - Application terminated by user
+2024-12-21 22:01:11,757 - __main__ - INFO - Application shutdown complete
+2024-12-21 22:01:16,080 - __main__ - INFO - Starting application...
+2024-12-21 22:01:16,168 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-12-21 22:01:19,174 - src.database.vector_store - INFO - Loaded 25 vectors from disk
+2024-12-21 22:01:19,226 - __main__ - INFO - Application initialized successfully
+2024-12-21 22:01:43,639 - src.ui.terminal_ui - ERROR - Error in UI: ChatSession.__init__() missing 1 required positional argument: 'embedding_model'
+2024-12-21 22:01:43,641 - __main__ - ERROR - Application error: ChatSession.__init__() missing 1 required positional argument: 'embedding_model'
+2024-12-21 22:01:43,681 - __main__ - INFO - Application shutdown complete
