@@ -19,8 +19,8 @@ A terminal-based chat system that combines the power of Large Language Models wi
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/rag-chat-system.git
-cd rag-chat-system
+https://github.com/Bitsy-Chuck/context_aware_llm.git
+cd context_aware_llm
 ```
 
 2. Create a virtual environment and activate it:
