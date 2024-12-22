@@ -1,15 +1,17 @@
-import traceback
-from typing import List, Dict, Optional, Union
+from typing import List, Dict, Optional, Union, Any
 from pathlib import Path
 import asyncio
 import logging
 from datetime import datetime
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 
 from ..models.base_embeddings import BaseEmbeddings
 from ..database.db_manager import DatabaseManager
 from ..database.vector_store import VectorStore
-from .document_processor import DocumentProcessor, ProcessedChunk
+from ..indexing.document_processor import DocumentProcessor, ProcessedChunk
+from ..rag.factory import RAGFactory, RAGType
+from ..rag.base_rag import RAGDocument, RAGQuery
+from ..rag.vector_rag import VectorRAG
 
 
 @dataclass
@@ -29,18 +31,44 @@ class IndexManager:
             self,
             embedding_model: BaseEmbeddings,
             db_manager: DatabaseManager,
-            vector_store: VectorStore,
+            vector_store: Optional[VectorStore] = None,
             chunk_size: int = 1000,
-            chunk_overlap: int = 200
+            chunk_overlap: int = 200,
+            rag_type: RAGType = RAGType.VECTOR,
+            rag_config: Optional[Dict[str, Any]] = None
     ):
         self.embedding_model = embedding_model
         self.db_manager = db_manager
         self.vector_store = vector_store
-        self.document_processor = DocumentProcessor(chunk_size, chunk_overlap)
+        self.chunk_size = chunk_size
+        self.chunk_overlap = chunk_overlap
         self.logger = logging.getLogger(__name__)
 
+        # Initialize RAG factory and create RAG implementation
+        self.rag_factory = RAGFactory()
+        self.rag_type = rag_type
+        self.rag_config = rag_config or {}
+        self.rag = None  # Will be initialized in initialize()
+
+    async def initialize(self) -> None:
+        """Initialize the RAG implementation."""
+        try:
+            self.rag = await self.rag_factory.create_rag(
+                rag_type=self.rag_type,
+                embedding_model=self.embedding_model,
+                db_manager=self.db_manager,
+                vector_store=self.vector_store,
+                config={
+                    "chunk_size": self.chunk_size,
+                    "chunk_overlap": self.chunk_overlap,
+                    **self.rag_config
+                }
+            )
+        except Exception as e:
+            self.logger.error(f"Failed to initialize RAG: {str(e)}")
+            raise RuntimeError(f"Failed to initialize RAG: {str(e)}")
+
     async def index_file(self, file_path: Union[str, Path]) -> str:
-        # logging.getLogger(__name__).info(f"hello hello 123")
         """
         Index a single file.
 
@@ -54,66 +82,35 @@ class IndexManager:
             ValueError: If no content could be extracted from the file
             Exception: If any error occurs during indexing
         """
+        if not self.rag:
+            await self.initialize()
+
         try:
-            file_path = Path(file_path)
-            if not file_path.exists():
-                raise ValueError(f"File not found: {file_path}")
+            # Process file into chunks using RAG's file processor
+            file_id = await self.rag.add_file(file_path)
 
-            # Process the file into chunks
-            chunks = await self.document_processor.process_file(file_path)
-            if not chunks:
-                raise ValueError(f"No content extracted from file: {file_path}")
+            # Maintain backward compatibility with IndexedFile structure
+            if isinstance(self.rag, VectorRAG):
+                # For VectorRAG, maintain the original structure
+                doc = await self.rag.get_document(file_id)
+                if doc:
+                    indexed_file = IndexedFile(
+                        file_id=file_id,
+                        file_path=str(file_path),
+                        file_type=doc.metadata.get("mime_type", "unknown"),
+                        num_chunks=1,  # Since we're using whole documents now
+                        vector_ids=[int(doc.metadata.get("vector_id", 0))],
+                        embedding_model=self.embedding_model.get_model_name(),
+                        indexed_at=datetime.now(),
+                        metadata=doc.metadata
+                    )
+                    return indexed_file.file_id
 
-            # Generate embeddings for all chunks
-            texts = [chunk.content for chunk in chunks]
-            # logging.getLogger(__name__).info(f"hello hello", texts)
-            embeddings = await self.embedding_model.embed_texts(texts)
-            # logging.getLogger(__name__).info(f"done, done", embeddings)
-
-            # Store in vector database
-            metadata = [chunk.metadata for chunk in chunks]
-            vector_ids = await self.vector_store.add_embeddings(
-                embeddings=embeddings,
-                texts=texts,
-                metadata=metadata
-            )
-            # logging.getLogger(__name__).info(f"stored, stored", vector_ids)
-
-            # Prepare file information
-            file_info = IndexedFile(
-                file_id=chunks[0].metadata["file_id"],
-                file_path=str(file_path),
-                file_type=chunks[0].metadata["mime_type"],
-                num_chunks=len(chunks),
-                vector_ids=vector_ids,  # These are now integers from VectorStore
-                embedding_model=self.embedding_model.get_model_name(),
-                indexed_at=datetime.now(),
-                metadata={
-                    "chunk_size": self.document_processor.chunk_size,
-                    "chunk_overlap": self.document_processor.chunk_overlap,
-                    "file_size": file_path.stat().st_size,
-                    "vector_dimension": self.vector_store.dimension
-                }
-            )
-
-            # Save to database
-            await self.db_manager.save_indexed_file(
-                file_info.file_id,
-                file_info.file_path,
-                file_info.file_type,
-                file_info.metadata,
-                file_info.embedding_model,
-                file_info.metadata.get("chunk_size", 0),
-                file_info.metadata.get("chunk_overlap", 0),
-            )
-
-            self.logger.info(f"Successfully indexed file: {file_path} with ID: {file_info.file_id}")
-            return file_info.file_id
+            return file_id
 
         except Exception as e:
             self.logger.error(f"Error indexing file {file_path}: {str(e)}")
-            self.logger.error(f"Stacktrace: {traceback.format_exc()}")
-            raise
+            raise RuntimeError(f"Failed to index file: {str(e)}")
 
     async def search_similar(
             self,
@@ -132,27 +129,29 @@ class IndexManager:
         Returns:
             List[Dict]: List of search results with metadata and scores
         """
-        try:
-            # Generate embedding for query
-            query_embedding = await self.embedding_model.embed_query(query)
+        if not self.rag:
+            await self.initialize()
 
-            # Search in vector store
-            results = await self.vector_store.search(
-                query_embedding=query_embedding,
-                k=k,
-                filter_criteria=filter_criteria
+        try:
+            # Create RAGQuery
+            rag_query = RAGQuery(
+                query_text=query,
+                filters=filter_criteria,
+                top_k=k
             )
 
-            # Format results to match VectorStore output
+            # Perform search
+            results = await self.rag.search(rag_query)
+
+            # Format results to maintain backward compatibility
             formatted_results = []
-            for idx, distance, metadata in results:
+            for doc in results.documents:
                 formatted_results.append({
-                    "content": metadata["text"],
+                    "content": doc.content,
                     "metadata": {
-                        **metadata["metadata"],
-                        "similarity_score": 1.0 / (1.0 + distance),  # Convert distance to similarity
-                        "vector_id": idx,
-                        "distance": distance
+                        **doc.metadata,
+                        "similarity_score": doc.score if doc.score is not None else 0.0,
+                        "vector_id": doc.metadata.get("vector_id", None)
                     }
                 })
 
@@ -160,8 +159,7 @@ class IndexManager:
 
         except Exception as e:
             self.logger.error(f"Error in similarity search: {str(e)}")
-            self.logger.error(f"Stacktrace: {traceback.format_exc()}")
-            raise
+            raise RuntimeError(f"Search failed: {str(e)}")
 
     async def get_indexed_files_stats(self) -> List[Dict]:
         """
@@ -170,9 +168,17 @@ class IndexManager:
         Returns:
             List[Dict]: List of indexed files with their statistics
         """
+        if not self.rag:
+            await self.initialize()
+
         try:
+            # Get basic stats from RAG implementation
+            rag_stats = self.rag.get_stats()
+
+            # Get files from database
             files = await self.db_manager.get_indexed_files()
 
+            # Enhance with additional stats
             enhanced_files = []
             for file in files:
                 try:
@@ -181,11 +187,13 @@ class IndexManager:
                         **file,
                         "exists": file_path.exists(),
                         "size": file_path.stat().st_size if file_path.exists() else None,
-                        "last_modified": datetime.fromtimestamp(
-                            file_path.stat().st_mtime) if file_path.exists() else None,
-                        "vector_store_stats": {
-                            "total_vectors": len(file["vector_ids"]) if "vector_ids" in file else 0,
-                            "dimension": self.vector_store.dimension
+                        "last_modified": datetime.fromtimestamp(file_path.stat().st_mtime)
+                        if file_path.exists() else None,
+                        "rag_backend": self.rag.get_backend_type(),
+                        "rag_stats": {
+                            "embedding_model": self.embedding_model.get_model_name(),
+                            "supports_metadata_search": self.rag.supports_metadata_search(),
+                            **rag_stats
                         }
                     }
                     enhanced_files.append(stats)
@@ -197,5 +205,4 @@ class IndexManager:
 
         except Exception as e:
             self.logger.error(f"Error getting indexed files stats: {str(e)}")
-            self.logger.error(f"Stacktrace: {traceback.format_exc()}")
-            raise
+            raise RuntimeError(f"Failed to get stats: {str(e)}")

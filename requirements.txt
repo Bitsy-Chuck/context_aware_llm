@@ -9,3 +9,5 @@ anthropic~=0.42.0
 numpy~=1.26.4
 torch~=2.2.2
 asyncpg~=0.30.0
+networkx~=3.4.2
+chonkie~=0.2.2
