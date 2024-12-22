@@ -517,3 +517,40 @@ class DatabaseManager:
         except Exception as e:
             self.logger.error(f"Error getting database stats: {str(e)}\n{traceback.format_exc()}")
             return {}
+
+    async def get_file_by_path(self, file_path: str) -> Optional[Dict]:
+        """
+        Get indexed file information by file path.
+
+        Args:
+            file_path: Path of the indexed file
+
+        Returns:
+            Optional[Dict]: File information if found, None otherwise
+        """
+        await self._validate_connection()
+        try:
+            async with self.pool.acquire() as conn:
+                row = await conn.fetchrow("""
+                    SELECT file_id, file_path, file_type, indexed_at, metadata, 
+                           embedding_model, chunk_size, chunk_overlap
+                    FROM indexed_files
+                    WHERE file_path = $1
+                """, file_path)
+
+                if not row:
+                    return None
+
+                return {
+                    "file_id": row['file_id'],
+                    "file_path": row['file_path'],
+                    "file_type": row['file_type'],
+                    "indexed_at": row['indexed_at'],
+                    "metadata": json.loads(row['metadata']) if row['metadata'] else {},
+                    "embedding_model": row['embedding_model'],
+                    "chunk_size": row['chunk_size'],
+                    "chunk_overlap": row['chunk_overlap']
+                }
+        except Exception as e:
+            self.logger.error(f"Error getting file by path: {str(e)}\n{traceback.format_exc()}")
+            return None

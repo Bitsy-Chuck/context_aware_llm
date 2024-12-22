@@ -1,4 +1,8 @@
+import concurrent
+import os
 import traceback
+from datetime import datetime
+from pathlib import Path
 from typing import Optional, List, Dict
 import asyncio
 import logging
@@ -62,7 +66,17 @@ class TerminalUI:
         """Start the terminal UI."""
         try:
             await self._show_welcome_message()
-            await self.create_new_chat()
+            await self.list_chats()
+            choice = await self.prompt_session.prompt_async(
+                "Enter chat ID to switch or press Enter for new chat: "
+            )
+
+            if choice.strip():
+                await self.switch_chat(choice)
+            else:
+                await self.create_new_chat()
+            # choose any chat, if name is not found, create a new one with that name
+
             await self._main_loop()
         except Exception as e:
             self.logger.error(f"Error in UI: {str(e)}")
@@ -186,26 +200,125 @@ class TerminalUI:
 
         self.console.print(table)
 
+    import os
+    from pathlib import Path
+
+    import concurrent.futures
+    from datetime import datetime
+
     async def upload_file(self):
-        """Upload and index a file."""
-        file_path = await self.prompt_session.prompt_async("Enter file path: ")
+        """Upload and index a file or all files in a directory using multiple threads."""
+        file_path = await self.prompt_session.prompt_async("Enter file/folder path: ")
+        path = Path(file_path)
+        failed_files = []
 
         try:
+            file_ids = []
             with Progress() as progress:
-                task = progress.add_task("Indexing file...", total=None)
+                task = progress.add_task("Indexing...", total=None)
 
-                self.console.print(f"[green]Successfully started indexed file: {file_path}[/green]")
-                # Index the file
-                file_id = await self.index_manager.index_file(file_path)
+                if path.is_dir():
+                    self.console.print(f"[green]Starting indexing of directory: {file_path}[/green]")
 
-                progress.update(task, completed=True)
+                    # Collect all files first
+                    files_to_process = []
+                    for root, _, files in os.walk(path):
+                        for file in files:
+                            full_path = Path(root) / file
+                            files_to_process.append(str(full_path))
 
-                self.console.print(f"[green]Successfully indexed file: {file_path}[/green]")
-                return file_id
+                    async def process_single_file(file_path):
+                        try:
+                            self.console.print(f"[blue]Indexing file: {file_path}[/blue]")
+                            file_info = self.file_helper.get_file_info(file_path)
+                            if not file_info:
+                                file_id = await self.index_manager.index_file(file_path)
+                                if file_id:
+                                    return {"success": True, "file_id": file_id, "file_path": file_path}
+                                return {"success": False, "error": "No file ID returned", "file_path": file_path}
+                        except Exception as file_error:
+                            self.logger.error(f"Error indexing file {file_path}: {str(file_error)}")
+                            self.console.print(f"[yellow]Skipping file {file_path}: {str(file_error)}[/yellow]")
+                            return {
+                                "success": False,
+                                "error": str(file_error),
+                                "file_path": file_path
+                            }
+
+                    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+                        tasks = [
+                            asyncio.create_task(process_single_file(file_path))
+                            for file_path in files_to_process
+                        ]
+
+                        results = await asyncio.gather(*tasks, return_exceptions=True)
+
+                        # Process results and collect failed files
+                        for result in results:
+                            if isinstance(result, Exception):
+                                failed_files.append({
+                                    "file_path": "Unknown",
+                                    "error": str(result)
+                                })
+                            elif result["success"]:
+                                file_ids.append(result["file_id"])
+                            else:
+                                failed_files.append({
+                                    "file_path": result["file_path"],
+                                    "error": result["error"]
+                                })
+
+                    progress.update(task, completed=True)
+                    self.console.print(
+                        f"[green]Successfully indexed {len(file_ids)} files from directory: {file_path}[/green]")
+
+                else:
+                    # Handle single file
+                    try:
+                        self.console.print(f"[green]Starting indexing of file: {file_path}[/green]")
+                        file_id = await self.index_manager.index_file(str(path))
+                        if file_id:
+                            file_ids.append(file_id)
+                        else:
+                            failed_files.append({
+                                "file_path": str(path),
+                                "error": "No file ID returned"
+                            })
+                    except Exception as e:
+                        failed_files.append({
+                            "file_path": str(path),
+                            "error": str(e)
+                        })
+                    progress.update(task, completed=True)
+                    self.console.print(f"[green]Successfully indexed file: {file_path}[/green]")
+
+                # Save failed files to a txt file if any failures occurred
+                if failed_files:
+                    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                    failed_files_path = f"failed_indexing_{timestamp}.txt"
+
+                    with open(failed_files_path, "w") as f:
+                        f.write("Failed Files Report\n")
+                        f.write("=================\n")
+                        f.write(f"Attempted indexing at: {datetime.now()}\n")
+                        f.write(f"Source directory/file: {file_path}\n\n")
+
+                        for failed in failed_files:
+                            f.write(f"File: {failed['file_path']}\n")
+                            f.write(f"Error: {failed['error']}\n")
+                            f.write("-" * 50 + "\n")
+
+                    self.console.print(
+                        f"[yellow]{len(failed_files)} files failed to index. "
+                        f"Details saved to: {failed_files_path}[/yellow]"
+                    )
+
+                return file_ids
 
         except Exception as e:
-            self.logger.error(f"Error uploading file: {str(e)}")
-            self.console.print(f"[red]Error uploading file: {str(e)}[/red]")
+            self.logger.error(f"Error processing path {file_path}: {str(e)}")
+            self.console.print(f"[red]Error processing path: {str(e)}[/red]")
+            return []
 
     async def list_files(self):
         """List all indexed files."""
@@ -215,18 +328,19 @@ class TerminalUI:
         table.add_column("File ID")
         table.add_column("Path")
         table.add_column("Type")
-        table.add_column("Chunks")
+        # table.add_column("Chunks")
+        table.add_column("Embedding Model")
         table.add_column("Indexed At")
-
-        try:
-            self.logger.info("files", files)
-            self.logger.info("files1", files[0]['file_id'][:8])
-            self.logger.info("files2", str(files[0]['file_path']))
-            self.logger.info("files3", files[0]['file_type'])
-            self.logger.info("files4", str(files[0]['metadata']['num_chunks']))
-            self.logger.info("files5", files[0]['indexed_at'].strftime("%Y-%m-%d %H:%M"))
-        except Exception as e:
-            self.logger.error("Error: ", traceback.print_stack())
+        #
+        # try:
+        #     self.logger.info("files", files)
+        #     self.logger.info("files1", files[0]['file_id'][:8])
+        #     self.logger.info("files2", str(files[0]['file_path']))
+        #     self.logger.info("files3", files[0]['embedding_model'])
+        #     # self.logger.info("files4", str(files[0]['metadata']['chunk_']))
+        #     self.logger.info("files5", files[0]['indexed_at'].strftime("%Y-%m-%d %H:%M"))
+        # except Exception as e:
+        #     self.logger.error("Error: ", traceback.print_stack())
 
         for file in files:
             self.logger.info("files6", file)
@@ -235,7 +349,7 @@ class TerminalUI:
                 file['file_id'][:8],
                 str(file['file_path']),
                 file['file_type'],
-                str(file['metadata']['num_chunks']),
+                str(file['embedding_model']),
                 file['indexed_at'].strftime("%Y-%m-%d %H:%M")
             )
 

@@ -40,6 +40,7 @@ class IndexManager:
         self.logger = logging.getLogger(__name__)
 
     async def index_file(self, file_path: Union[str, Path]) -> str:
+        # logging.getLogger(__name__).info(f"hello hello 123")
         """
         Index a single file.
 
@@ -65,7 +66,9 @@ class IndexManager:
 
             # Generate embeddings for all chunks
             texts = [chunk.content for chunk in chunks]
+            # logging.getLogger(__name__).info(f"hello hello", texts)
             embeddings = await self.embedding_model.embed_texts(texts)
+            # logging.getLogger(__name__).info(f"done, done", embeddings)
 
             # Store in vector database
             metadata = [chunk.metadata for chunk in chunks]
@@ -74,6 +77,7 @@ class IndexManager:
                 texts=texts,
                 metadata=metadata
             )
+            # logging.getLogger(__name__).info(f"stored, stored", vector_ids)
 
             # Prepare file information
             file_info = IndexedFile(
@@ -93,7 +97,15 @@ class IndexManager:
             )
 
             # Save to database
-            await self.db_manager.save_indexed_file(**asdict(file_info))
+            await self.db_manager.save_indexed_file(
+                file_info.file_id,
+                file_info.file_path,
+                file_info.file_type,
+                file_info.metadata,
+                file_info.embedding_model,
+                file_info.metadata.get("chunk_size", 0),
+                file_info.metadata.get("chunk_overlap", 0),
+            )
 
             self.logger.info(f"Successfully indexed file: {file_path} with ID: {file_info.file_id}")
             return file_info.file_id

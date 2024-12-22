@@ -1,0 +1,9 @@
+/logs/
+__pycache__/
+app.log
+data
+docs
+logs
+src/database/test.py
+data/vector_store/metadata.pkl
+data/vector_store/faiss_index.bin

@@ -7,6 +7,8 @@ from dataclasses import dataclass
 import hashlib
 from datetime import datetime
 
+from chonkie import TokenChunker, SentenceChunker, SemanticChunker
+
 
 @dataclass
 class ProcessedChunk:
@@ -49,7 +51,7 @@ class DocumentProcessor:
 
         try:
             if mime_type.startswith('text/'):
-                chunks = await self._process_text_file(file_path)
+                chunks = await self._process_text_file_chomki(file_path)
             else:
                 raise ValueError(f"Unsupported MIME type: {mime_type}")
 
@@ -76,7 +78,38 @@ class DocumentProcessor:
             self.logger.error(f"Error processing file {file_path}: {str(e)}")
             raise
 
+    async def _process_text_file_chomki(self, file_path: Path) -> List[str]:
+        logging.getLogger(__name__).info(f"Processing asd text file: {file_path}")
+        """Process a text file into chunks."""
+        with open(file_path, 'r', encoding='utf-8') as f:
+            text = f.read()
+
+        chunker = SentenceChunker(
+            tokenizer="gpt2",                # Supports string identifiers
+            chunk_size=512,                  # Maximum tokens per chunk
+            chunk_overlap=128,               # Overlap between chunks
+            min_sentences_per_chunk=1        # Minimum sentences in each chunk
+        )
+
+        chunks = chunker(text)
+
+        logging.getLogger(__name__).info(f"Processed asd text file: {file_path}")
+        chunker_semantic = SemanticChunker(
+            embedding_model="minishlab/potion-base-8M",  # Default model
+            similarity_window=1,                   # Similarity threshold (0-1)
+            chunk_size=512,                             # Maximum tokens per chunk
+        )
+
+        semantic_chunks_flat=[]
+        for chunk in chunks:
+            semantic_chunks = chunker_semantic(chunk.text)
+            for semantic_chunk in semantic_chunks:
+                semantic_chunks_flat.append(semantic_chunk.text)
+
+        return semantic_chunks_flat
+
     async def _process_text_file(self, file_path: Path) -> List[str]:
+        logging.getLogger(__name__).info(f"Processing asd text file: {file_path}")
         """Process a text file into chunks."""
         with open(file_path, 'r', encoding='utf-8') as f:
             text = f.read()
@@ -102,7 +135,8 @@ class DocumentProcessor:
 
             chunks.append(text[start:end])
             start = end - self.chunk_overlap
-
+            logging.getLogger(__name__).info(f"my bad: {file_path}")
+        logging.getLogger(__name__).info(f"Processed asd text file: {file_path}")
         return chunks
 
     def _generate_file_id(self, file_path: Path) -> str:

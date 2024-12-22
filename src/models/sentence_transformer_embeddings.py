@@ -23,6 +23,7 @@ class SentenceTransformerEmbeddings(BaseEmbeddings):
         self.batch_size = batch_size
 
     async def embed_texts(self, texts: List[str]) -> np.ndarray:
+
         # Encode all texts in batches
         embeddings = self.model.encode(
             texts,
