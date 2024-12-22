@@ -1,4 +1,3 @@
-```markdown
 # RAG-Powered Chat System
 
 A terminal-based chat system that combines the power of Large Language Models with RAG (Retrieval Augmented Generation) capabilities. This system allows for multiple chat sessions, document indexing, and context-aware responses.
@@ -149,4 +148,3 @@ For support:
 - PostgreSQL 12+
 - 8GB RAM minimum (recommended)
 - Anthropic API key
-```
