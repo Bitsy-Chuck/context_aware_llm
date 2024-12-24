@@ -185,7 +185,7 @@ class TerminalUI:
     async def list_chats(self):
         """List all chat sessions."""
         chats = await self.chat_manager.list_chats()
-
+        self.logger.info("--> ", chats)
         table = Table(title="Available Chats")
         table.add_column("Chat ID")
         table.add_column("Title")
@@ -193,9 +193,9 @@ class TerminalUI:
 
         for chat in chats:
             table.add_row(
-                chat['chat_id'][:8],
-                chat['title'],
-                chat['last_updated'].strftime("%Y-%m-%d %H:%M")
+                chat.chat_id[:8],
+                chat.title,
+                chat.last_updated.strftime("%Y-%m-%d %H:%M")
             )
 
         self.console.print(table)

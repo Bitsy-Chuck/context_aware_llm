@@ -63,6 +63,8 @@ class ApplicationContext:
                 index_path=config.vector_store_path
             )
 
+            graph_store = G
+
             # Initialize LLM
             # llm = ClaudeModel(
             #     model_name=config.model.model_name,

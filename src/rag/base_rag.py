@@ -83,7 +83,7 @@ class BaseRAG(ABC):
             :param chunk_size:
         """
         try:
-            document_processor = DocumentProcessor(chunk_size, chunk_overlap)
+            document_processor = DocumentProcessor()
             # Process file into chunks using existing DocumentProcessor
             processed_chunks = await document_processor.process_file(file_path)
 
