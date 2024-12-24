@@ -26,6 +26,8 @@ from ..database.vector_store import VectorStore
 from ..rag.base_rag import BaseRAG, RAGQuery
 from ..rag.factory import RAGFactory, RAGType
 from .chat_session import ChatSession, MessageRole, QueryType, ChatContext
+from ..rag.graph_rag import GraphRAG
+
 
 @dataclass
 class ChatInfo:
@@ -235,7 +237,8 @@ class ChatManager:
             self,
             session: ChatSession,
             query: str,
-            include_context: bool = True
+            include_context: bool = True,
+            enable_advanced_context: bool = True
     ) -> Tuple[str, Optional[Dict[str, Any]]]:
         """Generate a response with enhanced context for code generation."""
         try:
@@ -245,12 +248,72 @@ class ChatManager:
             # Detect query type and extract requirements
             query_type = session._detect_query_type(query)
 
-            if query_type in [QueryType.CODE, QueryType.VISUALIZATION, QueryType.API]:
+            if query_type in [QueryType.CODE, QueryType.VISUALIZATION, QueryType.API] and enable_advanced_context:
                 # Extract technical requirements
                 requirements = self._extract_technical_requirements(query)
 
                 # Get code-specific context
                 context_content, code_context = await self._get_code_context(query, requirements)
+
+                # For complex code generation tasks, get additional context
+                enhanced_context = {}
+                try:
+                    if isinstance(self.rag, GraphRAG):
+                        # Get implementation examples for required functions
+                        impl_examples = []
+                        for func in requirements["functions"]:
+                            examples = await self.rag.get_implementation_examples(func)
+                            impl_examples.extend(examples)
+
+                        # Get related API endpoints
+                        related_endpoints = []
+                        for func in requirements["functions"]:
+                            endpoints = await self.rag.get_related_endpoints(func)
+                            related_endpoints.extend(endpoints)
+
+                        # Analyze dependencies
+                        dep_analysis = await self.rag.analyze_dependencies()
+
+                        # Get document hierarchy for complex components
+                        if query_type == QueryType.VISUALIZATION:
+                            doc_hierarchy = await self.rag.get_document_hierarchy()
+
+                            # Find relevant component implementations
+                            viz_components = [
+                                doc for doc in doc_hierarchy["implementation_groups"]
+                                if any(viz in doc.lower() for viz in requirements["visualizations"])
+                            ]
+
+                        # Enhanced context construction
+                        enhanced_context = {
+                            "implementation_examples": impl_examples,
+                            "related_endpoints": related_endpoints,
+                            "dependency_analysis": {
+                                "central_dependencies": dep_analysis["central_dependencies"],
+                                "dependency_clusters": dep_analysis["dependency_clusters"]
+                            }
+                        }
+
+                        if query_type == QueryType.VISUALIZATION:
+                            enhanced_context["visualization_components"] = viz_components
+
+                        # Update metadata
+                        context_metadata.update({
+                            "enhanced_context": enhanced_context,
+                            "implementation_examples": len(impl_examples),
+                            "related_endpoints": len(related_endpoints),
+                            "analyzed_dependencies": len(dep_analysis["central_dependencies"])
+                        })
+                    else:
+                        # If not using GraphRAG, still provide basic code context
+                        context_metadata["rag_type"] = self.rag.get_backend_type()
+                        self.logger.info(
+                            f"Using basic code context with {self.rag.get_backend_type()} RAG implementation")
+
+                except Exception as e:
+                    self.logger.error(f"Error getting enhanced context: {str(e)}")
+                    # Continue with basic context even if enhanced context fails
+                    context_metadata["enhanced_context_error"] = str(e)
 
                 if context_content:
                     context_prompt = (

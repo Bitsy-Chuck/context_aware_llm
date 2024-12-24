@@ -3,7 +3,9 @@ __pycache__/
 app.log
 data
 docs
+/data
 logs
 src/database/test.py
-data/vector_store/metadata.pkl
-data/vector_store/faiss_index.bin
+/data/vector_store/metadata.pkl
+/data/vector_store/faiss_index.bin
+/data/
