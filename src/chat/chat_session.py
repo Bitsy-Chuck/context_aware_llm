@@ -253,6 +253,8 @@ class ChatSession:
             # Detect query type and extract requirements
             query_type = self._detect_query_type(query)
             technical_requirements = None
+            if self.rag.get_backend_type() == "vector":
+                query_type = QueryType.GENERAL
 
             if query_type in [QueryType.CODE, QueryType.VISUALIZATION, QueryType.API]:
                 technical_requirements = self._extract_technical_requirements(query)
@@ -403,7 +405,7 @@ class ChatSession:
             self,
             query: str,
             max_chunks: int = 5,
-            threshold: float = 0.6
+            threshold: float = 0.3
     ) -> ChatContext:
         """Retrieve relevant context from vector store."""
         try:

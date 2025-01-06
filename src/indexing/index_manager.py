@@ -34,7 +34,7 @@ class IndexManager:
             vector_store: Optional[VectorStore] = None,
             chunk_size: int = 1000,
             chunk_overlap: int = 200,
-            rag_type: RAGType = RAGType.VECTOR,
+            rag_type: RAGType = RAGType.GRAPH,
             rag_config: Optional[Dict[str, Any]] = None
     ):
         self.embedding_model = embedding_model
