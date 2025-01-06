@@ -7,6 +7,7 @@ import sys
 from typing import Tuple, Optional
 import traceback
 
+from bridge import WebUIBridge
 from src.models.chat_gpt import ChatGPTModel
 from src.models.claude_model import ClaudeModel
 from src.models.sentence_transformer_embeddings import SentenceTransformerEmbeddings
@@ -17,6 +18,7 @@ from src.chat.message_formatter import MessageFormatter
 from src.indexing.index_manager import IndexManager
 from src.ui.terminal_ui import TerminalUI
 from src.utils.config import ConfigManager
+from src.rag.factory import RAGFactory, RAGType
 
 
 class ApplicationContext:
@@ -28,6 +30,7 @@ class ApplicationContext:
         self.chat_manager: Optional[ChatManager] = None
         self.index_manager: Optional[IndexManager] = None
         self.message_formatter: Optional[MessageFormatter] = None
+        self.rag_system = None
 
     async def initialize(self, config_path: str) -> Tuple[ChatManager, IndexManager, MessageFormatter]:
         """
@@ -63,31 +66,45 @@ class ApplicationContext:
                 index_path=config.vector_store_path
             )
 
-            graph_store = G
-
-            # Initialize LLM
-            # llm = ClaudeModel(
-            #     model_name=config.model.model_name,
-            #     api_key=config.model.api_key,
-            #     max_tokens=config.model.max_tokens
-            # )
-
-            llm = ChatGPTModel(
-                api_key=config.model.api_key,
+            # Initialize RAG system
+            rag_type = getattr(config, 'rag_type', 'vector')
+            rag_factory = RAGFactory()
+            self.rag_system = await rag_factory.create_rag(
+                rag_type=RAGType.VECTOR,  #TODO: replace with enum impl
+                embedding_model=embedding_model,
+                db_manager=self.db_manager,
+                vector_store=vector_store
             )
 
-            # Initialize managers
+            # Initialize LLM based on config
+            if getattr(config.model, 'type', 'gpt').lower() == 'claude':
+                llm = ClaudeModel(
+                    model_name=config.model.model_name,
+                    api_key=config.model.api_key,
+                    max_tokens=config.model.max_tokens,
+                )
+            else:
+                llm = ChatGPTModel(
+                    api_key=config.model.api_key,
+                    api_version=config.model.api_version,
+                    api_base=config.model.api_base,
+
+                )
+
+            # Initialize managers with RAG support
             self.chat_manager = ChatManager(
                 llm=llm,
                 db_manager=self.db_manager,
                 vector_store=vector_store,
-                embedding_model=embedding_model
+                embedding_model=embedding_model,
+                rag=self.rag_system
             )
 
             self.index_manager = IndexManager(
                 embedding_model=embedding_model,
                 db_manager=self.db_manager,
-                vector_store=vector_store
+                vector_store=vector_store,
+                rag_type=RAGType.VECTOR,
             )
 
             self.message_formatter = MessageFormatter()
@@ -104,6 +121,8 @@ class ApplicationContext:
         try:
             if self.db_manager:
                 await self.db_manager.close()
+            if self.rag_system and hasattr(self.rag_system, 'cleanup'):
+                await self.rag_system.cleanup()
             self.logger.info("Successfully cleaned up application components")
         except Exception as e:
             self.logger.error(f"Error during cleanup: {str(e)}\n{traceback.format_exc()}")
@@ -161,6 +180,13 @@ def setup_argument_parser() -> argparse.ArgumentParser:
         help="Directory for log files"
     )
 
+    parser.add_argument(
+        "--rag-type",
+        default=None,
+        choices=["vector", "graph"],
+        help="Override RAG type from config file"
+    )
+
     return parser
 
 
@@ -186,12 +212,24 @@ async def main() -> None:
         # Initialize components
         chat_manager, index_manager, message_formatter = await app_context.initialize(args.config)
 
-        # Create and start UI
-        ui = TerminalUI(chat_manager, index_manager, message_formatter)
-        logger.info("Application initialized successfully")
-
+        # # Create and start UI
+        # ui = TerminalUI(chat_manager, index_manager, message_formatter)
+        # logger.info("Application initialized successfully")
         # Start UI
-        await ui.start()
+        # await ui.start()
+
+        bridge = WebUIBridge(
+            chat_manager=chat_manager,
+            index_manager=index_manager,
+            message_formatter=message_formatter,
+            host="localhost",
+            port=8000
+        )
+
+        try:
+            await bridge.start()
+        except KeyboardInterrupt:
+            await bridge.stop()
 
     except KeyboardInterrupt:
         logger.info("Application terminated by user")

@@ -253,6 +253,8 @@ class ChatSession:
             # Detect query type and extract requirements
             query_type = self._detect_query_type(query)
             technical_requirements = None
+            if self.rag.get_backend_type() == "vector":
+                query_type = QueryType.GENERAL
 
             if query_type in [QueryType.CODE, QueryType.VISUALIZATION, QueryType.API]:
                 technical_requirements = self._extract_technical_requirements(query)

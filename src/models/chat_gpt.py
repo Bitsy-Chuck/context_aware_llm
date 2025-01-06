@@ -1,5 +1,15 @@
 from typing import List, Optional, Dict, Any
-from openai import AsyncOpenAI
+from openai import AsyncOpenAI, AsyncAzureOpenAI
+from .base_llm import BaseLLM, Message
+import base64
+import logging
+import os
+from pathlib import Path
+import mimetypes
+import traceback
+
+from typing import List, Optional, Dict, Any
+from openai import AsyncOpenAI, AsyncAzureOpenAI
 from .base_llm import BaseLLM, Message
 import base64
 import logging
@@ -14,34 +24,57 @@ class ChatGPTModel(BaseLLM):
 
     def __init__(
             self,
-            model_name: str = "gpt-4-turbo-preview",
+            model_name: str = "gpt-4",
+            model_type: str = "azure_openai",
             api_key: Optional[str] = None,
+            api_version: Optional[str] = None,
+            api_base: Optional[str] = None,
+            deployment_name: Optional[str] = None,
+            audience: Optional[str] = None,
+            organization: Optional[str] = None,
             max_tokens: int = 4096,
             temperature: float = 0.7,
             top_p: float = 0.9,
-            organization: Optional[str] = None
     ):
         """
         Initialize the ChatGPT model.
 
         Args:
             model_name: Name of the GPT model to use
-            api_key: OpenAI API key (optional, can use environment variable)
+            type: Type of API to use ('azure_openai' or 'openai')
+            api_key: API key
+            api_version: API version (required for Azure)
+            api_base: API base URL (required for Azure)
+            deployment_name: Model deployment name (required for Azure)
+            audience: Azure audience (optional)
+            organization: Organization ID (optional)
             max_tokens: Maximum number of tokens in the response
             temperature: Sampling temperature (0-1)
             top_p: Top-p sampling parameter (0-1)
-            organization: OpenAI organization ID (optional)
         """
         self.model_name = model_name
+        self.model_type = model_type
         self.max_tokens = max_tokens
         self.temperature = temperature
         self.top_p = top_p
+        self.deployment_name = deployment_name
 
-        # Initialize the client
-        self.client = AsyncOpenAI(
-            api_key=api_key or os.getenv("OPENAI_API_KEY"),
-            organization=organization or os.getenv("OPENAI_ORG_ID")
-        )
+        # Initialize the client based on type
+        if self.model_type == 'azure_openai':
+            if not api_base or not api_version:
+                raise ValueError("api_base and api_version are required for Azure OpenAI")
+
+            self.client = AsyncAzureOpenAI(
+                api_key=api_key or os.getenv("AZURE_OPENAI_API_KEY"),
+                api_version=api_version or os.getenv("AZURE_OPENAI_API_VERSION"),
+                azure_endpoint=api_base or os.getenv("AZURE_OPENAI_ENDPOINT"),
+                azure_deployment="gpt-4o"
+            )
+        else:
+            self.client = AsyncOpenAI(
+                api_key=api_key or os.getenv("OPENAI_API_KEY"),
+                organization=organization or os.getenv("OPENAI_ORG_ID")
+            )
 
         # Set up logging
         self.logger = logging.getLogger(__name__)
@@ -61,70 +94,17 @@ class ChatGPTModel(BaseLLM):
         ]
         return self.model_name in valid_models
 
-    def _get_mime_type(self, file_path: str) -> str:
-        """
-        Get the MIME type of a file.
-
-        Args:
-            file_path: Path to the file
-
-        Returns:
-            str: MIME type of the file
-        """
-        mime_type, _ = mimetypes.guess_type(file_path)
-        if not mime_type:
-            # Default to JPEG if can't determine
-            return "image/jpeg"
-        return mime_type
-
-    async def _process_image(self, img_path: str) -> Dict[str, Any]:
-        """
-        Process an image file into the format required by GPT-4 Vision.
-
-        Args:
-            img_path: Path to the image file
-
-        Returns:
-            Dict containing the formatted image data
-        """
-        try:
-            img_path = Path(img_path)
-            if not img_path.exists():
-                raise FileNotFoundError(f"Image file not found: {img_path}")
-
-            with open(img_path, "rb") as img_file:
-                base64_image = base64.b64encode(img_file.read()).decode()
-
-                return {
-                    "type": "image_url",
-                    "image_url": {
-                        "url": f"data:{self._get_mime_type(str(img_path))};base64,{base64_image}"
-                    }
-                }
-        except Exception as e:
-            self.logger.error(f"Error processing image {img_path}: {str(e)}\n{traceback.format_exc()}")
-            raise
-
     async def generate_response(
             self,
             messages: List[Message],
             context: Optional[str] = None,
             **kwargs
     ) -> str:
-        """
-        Generate a response using the ChatGPT model.
-
-        Args:
-            messages: List of Message objects containing the conversation history
-            context: Optional context string (e.g., for RAG applications)
-            **kwargs: Additional keyword arguments to pass to the API
-
-        Returns:
-            str: The generated response text
-        """
+        """Generate a response using the ChatGPT model."""
         try:
             formatted_messages = []
-            self.logger.info(f"Generating response with {len(messages)} messages", messages)
+            self.logger.info(f"Generating response with {len(messages)} messages")
+
             # Add RAG context if provided
             if context:
                 formatted_messages.append({
@@ -170,21 +150,22 @@ class ChatGPTModel(BaseLLM):
 
             self.logger.info(f"Sending request with {len(formatted_messages)} messages")
 
+            # Prepare model parameter based on type
+            model_param = self.deployment_name if self.model_type == 'azure_openai' else self.model_name
+
             # Merge kwargs with default parameters
             request_params = {
-                "model": self.model_name,
+                "model": model_param,
                 "messages": formatted_messages,
                 "max_tokens": self.max_tokens,
                 "temperature": self.temperature,
                 "top_p": self.top_p,
                 **kwargs
             }
-            self.logger.info(request_params)
 
             # Generate response
             response = await self.client.chat.completions.create(**request_params)
 
-            self.logger.info("---asdasd----", response)
             # Extract and return the text content
             if response.choices and len(response.choices) > 0:
                 return response.choices[0].message.content

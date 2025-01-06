@@ -246,7 +246,7 @@ class ChatManager:
             context_metadata = {}
 
             # Detect query type and extract requirements
-            query_type = session._detect_query_type(query)
+            query_type = session._detect._query_type(query)
 
             if query_type in [QueryType.CODE, QueryType.VISUALIZATION, QueryType.API] and enable_advanced_context:
                 # Extract technical requirements
@@ -407,6 +407,7 @@ class ChatManager:
             # Create new session instance
             session = ChatSession(
                 chat_id=chat_id,
+                rag=self.rag,
                 llm=self.llm,
                 db_manager=self.db_manager,
                 vector_store=self.vector_store,
