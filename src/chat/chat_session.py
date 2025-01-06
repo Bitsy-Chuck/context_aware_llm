@@ -405,7 +405,7 @@ class ChatSession:
             self,
             query: str,
             max_chunks: int = 5,
-            threshold: float = 0.6
+            threshold: float = 0.3
     ) -> ChatContext:
         """Retrieve relevant context from vector store."""
         try:

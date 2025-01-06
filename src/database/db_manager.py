@@ -106,7 +106,7 @@ class DatabaseManager:
         async def cleanup_routine():
             while True:
                 try:
-                    await asyncio.sleep(60)  # Run every minute
+                    await asyncio.sleep(600)  # Run every minute
                     if self.pool:
                         await self.pool.execute("SELECT 1")  # Keep-alive query
                 except asyncio.CancelledError:
@@ -142,11 +142,11 @@ class DatabaseManager:
                     )
                 """)
 
-                # Create indexed_files table
+                # Create  indexed_files table
                 await conn.execute("""
                     CREATE TABLE IF NOT EXISTS indexed_files (
                         file_id TEXT PRIMARY KEY,
-                        file_path TEXT UNIQUE,
+                        file_path TEXT ,
                         file_type TEXT,
                         indexed_at TIMESTAMP WITH TIME ZONE,
                         metadata JSONB,
@@ -160,7 +160,7 @@ class DatabaseManager:
                 await conn.execute("""
                     CREATE INDEX IF NOT EXISTS idx_messages_chat_id ON messages(chat_id);
                     CREATE INDEX IF NOT EXISTS idx_messages_timestamp ON messages(timestamp);
-                    CREATE INDEX IF NOT EXISTS idx_indexed_files_path ON indexed_files(file_path);
+                    -- CREATE INDEX IF NOT EXISTS idx_indexed_files_path ON indexed_files(file_path);
                     CREATE INDEX IF NOT EXISTS idx_chats_last_updated ON chats(last_updated);
                 """)
 

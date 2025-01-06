@@ -1,6 +1,7 @@
 import asyncio
 import json
 import logging
+import os
 import uuid
 from datetime import datetime
 from typing import Dict, Optional, List
@@ -138,15 +139,35 @@ class WebUIBridge:
         self.setup_routes()
         self.configure_endpoints()
 
+    # def setup_cors(self):
+    #     """Configure CORS for the application."""
+    #     self.app.add_middleware(
+    #         CORSMiddleware,
+    #         allow_origins=self.config.allowed_origins,
+    #         allow_credentials=True,
+    #         allow_methods=["*"],
+    #         allow_headers=["*"],
+    #     )
+
     def setup_cors(self):
         """Configure CORS for the application."""
         self.app.add_middleware(
             CORSMiddleware,
-            allow_origins=self.config.allowed_origins,
+            allow_origins=["*"],  # Allow all origins
             allow_credentials=True,
-            allow_methods=["*"],
-            allow_headers=["*"],
+            allow_methods=["*"],  # Allow all methods
+            allow_headers=["*"],  # Allow all headers
         )
+
+        # Add these origins to your Config class
+        self.config.allowed_origins = [
+            "http://localhost:8000",
+            "http://localhost",
+            "http://127.0.0.1:8000",
+            "http://127.0.0.1",
+            "null",  # For Postman WebSocket requests
+            "*"  # Allow all origins
+        ]
 
     def setup_routes(self):
         """Set up WebSocket and HTTP routes."""
@@ -234,6 +255,8 @@ class WebUIBridge:
                 await self.handle_chat_message(websocket, params)
             elif command == '/upload':
                 await self.handle_file_upload(websocket, params)
+            elif command == '/upload_folder':
+                await self.handle_folder_upload(websocket, params)
             elif command == '/files':
                 await self.handle_list_files(websocket)
             else:
@@ -340,7 +363,7 @@ class WebUIBridge:
 
     async def handle_file_upload(self, websocket: WebSocket, params: dict):
         """Handle file upload and indexing."""
-        file_path = '/Users/ojasvsingh/personal_projects/rag_based_chatbot/docs/'+params.get('file_name')
+        file_path = '/Users/ojasvsingh/personal_projects/rag_based_chatbot/src/crustdata_docs/'+params.get('file_name')
         if not file_path:
             await self.send_error(websocket, "File path required")
             return
@@ -368,6 +391,29 @@ class WebUIBridge:
         except Exception as e:
             self.logger.error(f"Error indexing file: {str(e)}")
             await self.send_error(websocket, f"Error indexing file: {str(e)}")
+
+    async def handle_folder_upload(self, websocket: WebSocket, params: dict):
+        """Handle folder upload and indexing."""
+        folder_path = params.get('folder_path')
+        if not folder_path:
+            await self.send_error(websocket, "Folder path required")
+            return
+
+        try:
+            await websocket.send_json({
+                'type': 'indexing_status',
+                'status': 'started',
+                'folder_path': folder_path
+            })
+
+            # for each file in the folder call handle_file_upload
+            for file in os.listdir(folder_path):
+                if file.endswith(".md"):
+                    await self.handle_file_upload(websocket, {'file_name': file})
+
+        except Exception as e:
+            self.logger.error(f"Error indexing folder: {str(e)}")
+            await self.send_error(websocket, f"Error indexing folder: {str(e)}")
 
     async def handle_list_files(self, websocket: WebSocket):
         """Handle listing indexed files."""
