@@ -1,7 +1,12 @@
 # LLM Model Configuration
 model:
-  model_name: "claude-3-sonnet-20240229"
-  api_key: ""
+  type: "azure_openai"  # or "openai" or "claude"
+  model_name: "gpt-4o"
+  api_key: None
+  api_version: "2024-08-01-preview"
+  deployment_name: gpt-4o
+  api_base: https://graphragdocs.openai.azure.com/
+  organization: null  # optional
   max_tokens: 4096
   temperature: 0.7
 
